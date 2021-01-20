@@ -731,3 +731,7 @@ components:
       type: apiKey
       name: api_key
       in: header
+x-ibm-configuration:
+  some-additional-strange-things:
+    key: value
+    something: else
