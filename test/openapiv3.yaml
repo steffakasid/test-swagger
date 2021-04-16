@@ -1,6 +1,7 @@
 ---
 openapi: 3.0.1
 info:
+  x-ibm-name: test
   title: Swagger Petstore
   description:
     "This is a sample server Petstore server.  You can find out more about     Swagger
@@ -735,3 +736,4 @@ x-ibm-configuration:
   some-additional-strange-things:
     key: value
     something: else
+X-ibm-configuration: wtf

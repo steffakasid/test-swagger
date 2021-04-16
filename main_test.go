@@ -25,6 +25,7 @@ func TestOpenAPIv3(t *testing.T) {
 func TestKinV3(t *testing.T) {
 
 	fileBytes, err := ioutil.ReadFile("test/openapiv3.yaml")
+	assert.NoError(t, err)
 
 	swagger, err := openapi3.NewSwaggerLoader().LoadSwaggerFromData(fileBytes)
 	assert.NoError(t, err)
@@ -39,5 +40,6 @@ func TestKinV3(t *testing.T) {
 	b, err = yaml.Marshal(data)
 	assert.NoError(t, err)
 
-	ioutil.WriteFile("test_v3_out.yaml", b, 777)
+	err = ioutil.WriteFile("test_v3_out.yaml", b, 0777)
+	assert.NoError(t, err)
 }
