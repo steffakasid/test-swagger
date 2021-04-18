@@ -27,7 +27,9 @@ func TestKinV3(t *testing.T) {
 	fileBytes, err := ioutil.ReadFile("test/openapiv3.yaml")
 	assert.NoError(t, err)
 
-	swagger, err := openapi3.NewSwaggerLoader().LoadSwaggerFromData(fileBytes)
+	loader := openapi3.NewSwaggerLoader()
+	loader.IsExternalRefsAllowed = true
+	swagger, err := loader.LoadSwaggerFromData(fileBytes)
 	assert.NoError(t, err)
 	assert.IsType(t, &openapi3.Swagger{}, swagger)
 	b, err := swagger.MarshalJSON()
